@@ -1,26 +1,190 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-sans);
+  --font-heading: var(--font-heading);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  /* Paper White - Main background */
+  --background: 250 3% 97%;
+  --foreground: 0 0% 10%;
+  
+  /* White - Card backgrounds for contrast */
+  --card: 0 0% 100%;
+  --card-foreground: 0 0% 10%;
+  
+  --popover: 0 0% 100%;
+  --popover-foreground: 0 0% 10%;
+  
+  /* Sovereign Gold - Primary brand color */
+  --primary: 43 64% 53%;
+  --primary-foreground: 250 3% 97%;
+  
+  /* Chamber Charcoal - Secondary */
+  --secondary: 0 0% 14%;
+  --secondary-foreground: 250 3% 97%;
+  
+  /* Muted Ledger Gray */
+  --muted: 0 0% 37%;
+  --muted-foreground: 0 0% 37%;
+  
+  /* Sovereign Gold accent */
+  --accent: 43 64% 53%;
+  --accent-foreground: 0 0% 10%;
+  
+  --destructive: 0 84% 60%;
+  
+  /* Border & Separation */
+  --border: 40 10% 95%;
+  --input: 40 10% 95%;
+  
+  --ring: 43 64% 53%;
+  
+  --chart-1: 43 64% 53%;
+  --chart-2: 0 0% 37%;
+  --chart-3: 0 0% 14%;
+  --chart-4: 40 10% 95%;
+  --chart-5: 250 3% 97%;
+  
+  --radius: 0.5rem;
+  
+  --sidebar: 250 3% 97%;
+  --sidebar-foreground: 0 0% 10%;
+  --sidebar-primary: 43 64% 53%;
+  --sidebar-primary-foreground: 0 0% 10%;
+  --sidebar-accent: 40 10% 95%;
+  --sidebar-accent-foreground: 0 0% 10%;
+  --sidebar-border: 40 10% 95%;
+  --sidebar-ring: 43 64% 53%;
+}
+
+.dark {
+  /* Chamber Charcoal gradient for dark mode */
+  --background: 0 0% 10%;
+  --foreground: 250 3% 97%;
+  
+  --card: 0 0% 14%;
+  --card-foreground: 250 3% 97%;
+  
+  --popover: 0 0% 14%;
+  --popover-foreground: 250 3% 97%;
+  
+  /* Sovereign Gold - Primary brand color */
+  --primary: 43 64% 53%;
+  --primary-foreground: 0 0% 10%;
+  
+  /* Lighter charcoal for secondary */
+  --secondary: 0 0% 20%;
+  --secondary-foreground: 250 3% 97%;
+  
+  /* Muted Ledger Gray */
+  --muted: 0 0% 37%;
+  --muted-foreground: 0 0% 60%;
+  
+  --accent: 43 64% 53%;
+  --accent-foreground: 0 0% 10%;
+  
+  --destructive: 0 84% 60%;
+  
+  --border: 0 0% 20%;
+  --input: 0 0% 20%;
+  
+  --ring: 43 64% 53%;
+  
+  --chart-1: 43 64% 53%;
+  --chart-2: 0 0% 60%;
+  --chart-3: 0 0% 37%;
+  --chart-4: 0 0% 20%;
+  --chart-5: 0 0% 14%;
+  
+  --sidebar: 0 0% 14%;
+  --sidebar-foreground: 250 3% 97%;
+  --sidebar-primary: 43 64% 53%;
+  --sidebar-primary-foreground: 0 0% 10%;
+  --sidebar-accent: 0 0% 20%;
+  --sidebar-accent-foreground: 250 3% 97%;
+  --sidebar-border: 0 0% 20%;
+  --sidebar-ring: 43 64% 53%;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
+  
+  /* Apply Newsreader to all headings */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  /* Chamber Charcoal Gradient */
+  .bg-chamber-gradient {
+    background: linear-gradient(135deg, #1A1A1A 0%, #252525 100%);
+  }
+  
+  /* Sovereign Gold Text */
+  .text-sovereign-gold {
+    color: #D4AF37;
+  }
+  
+  /* Paper White Background */
+  .bg-paper-white {
+    background-color: #FAF9F6;
+  }
+  
+  /* Ledger Gray Text */
+  .text-ledger-gray {
+    color: #5F5E5E;
+  }
 }
