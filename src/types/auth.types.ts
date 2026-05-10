@@ -44,13 +44,15 @@ export interface AuthTokens {
 export interface User {
   id: string;
   email: string;
-  first_name: string;
-  last_name: string;
+  first_name?: string;
+  last_name?: string;
+  full_name?: string;
   username: string;
   mobile_number: string;
   id_number: string;
   firm_type: string;
   role: string[];
+  roles?: string[];
 }
 
 export interface AuthResponse {
