@@ -21,16 +21,18 @@ export interface CreateFirmPayload {
 }
 
 export interface Firm {
-  id: string;
-  firm_name: string;
+  name: string;
   firm_type: FirmType;
-  firm_email: string;
-  firm_phone: string;
-  firm_address: string;
-  owner_email: string;
-  owner_role: number;
-  firm_logo?: string;
-  created_at: string;
+  email: string;
+  phone: string;
+  address: string;
+  logo: string | null;
+  is_active: boolean;
+}
+
+export interface FirmResponse {
+  success: boolean;
+  data: Firm;
 }
 
 export const FIRM_TYPE_CHOICES: { value: FirmType; label: string }[] = [

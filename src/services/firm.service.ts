@@ -1,15 +1,15 @@
 import apiClient, { tokenManager } from '@/lib/api/client';
-import { CreateFirmPayload, Firm } from '@/types/firm.types';
+import { CreateFirmPayload, FirmResponse } from '@/types/firm.types';
 
 export const firmService = {
   createFirm: async (
     data: CreateFirmPayload
-  ): Promise<{ success: boolean; message: string; data?: Firm }> => {
+  ): Promise<{ success: boolean; message: string }> => {
     const response = await apiClient.post('auth/admin/firms/create/', data);
     return response.data;
   },
 
-  getFirm: async (): Promise<{ success: boolean; message: string; data?: Firm }> => {
+  getFirm: async (): Promise<FirmResponse> => {
     const response = await apiClient.get('auth/firm/');
     return response.data;
   },
